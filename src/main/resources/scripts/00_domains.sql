@@ -1,0 +1,2 @@
+INSERT INTO public.exercise(id, name, video_link) VALUES (nextval('pk_exercise_seq'), 'Stomach Vacuum', 'https://youtu.be/9Z9RCTV8gn8');
+INSERT INTO public.exercise(id, name, video_link) VALUES (nextval('pk_exercise_seq'), 'Joelhada', 'https://youtu.be/fZjIlKuDF_0');
