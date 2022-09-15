@@ -12,7 +12,7 @@
 	<artifactId>database</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>database</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Database for FitYou</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
