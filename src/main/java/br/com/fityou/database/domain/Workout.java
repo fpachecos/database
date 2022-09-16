@@ -16,7 +16,7 @@ import javax.persistence.SequenceGenerator;
 
 /**
  * @author fpach
- * A group of {@link WorkoutItem}
+ *         A group of {@link WorkoutItem}
  */
 @Entity(name = "workout")
 public class Workout implements Serializable {
@@ -30,11 +30,11 @@ public class Workout implements Serializable {
 	@SequenceGenerator(name = "pk_workout", sequenceName = "pk_workout_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_workout")
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String name;
 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String restTime;
 
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -81,8 +81,8 @@ public class Workout implements Serializable {
 	 */
 	public void setName(String name) {
 		this.name = name;
-	}	
-	
+	}
+
 	public String getRestTime() {
 		return restTime;
 	}
