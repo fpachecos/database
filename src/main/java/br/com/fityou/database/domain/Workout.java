@@ -33,7 +33,10 @@ public class Workout implements Serializable {
 	
 	@Column(nullable = false)
 	private String name;
-	
+
+	@Column(nullable = false)
+	private String restTime;
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(joinColumns = @JoinColumn(name = "workout_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "workoutItem_id", referencedColumnName = "id"))
 	List<WorkoutItem> workoutItems;
@@ -78,5 +81,13 @@ public class Workout implements Serializable {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}	
+	
+	public String getRestTime() {
+		return restTime;
+	}
+
+	public void setRestTime(String restTime) {
+		this.restTime = restTime;
 	}
 }
