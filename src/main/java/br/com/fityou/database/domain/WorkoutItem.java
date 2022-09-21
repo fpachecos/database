@@ -18,7 +18,7 @@ import javax.persistence.SequenceGenerator;
 
 /**
  * @author fpach
- * An {@link Exercise} with repetitions, series and comments definition
+ *         An {@link Exercise} with repetitions, series and comments definition
  */
 @Entity(name = "workoutItem")
 public class WorkoutItem implements Serializable {
@@ -32,19 +32,19 @@ public class WorkoutItem implements Serializable {
 	@SequenceGenerator(name = "pk_workoutItem", sequenceName = "pk_workoutItem_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_workoutItem")
 	private Long id;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Exercise exercise;
-	
+
 	@Column(nullable = false)
-	private Integer repetitions;
-	
+	private String repetitions;
+
 	@Column(nullable = false)
 	private Integer series;
-	
-	@Column(nullable = false)
+
+	@Column(nullable = true)
 	private String comments;
-	
+
 	@ManyToMany(mappedBy = "workoutItems")
 	private List<Workout> workouts;
 
@@ -79,14 +79,14 @@ public class WorkoutItem implements Serializable {
 	/**
 	 * @return the repetitions
 	 */
-	public Integer getRepetitions() {
+	public String getRepetitions() {
 		return repetitions;
 	}
 
 	/**
 	 * @param repetitions the repetitions to set
 	 */
-	public void setRepetitions(Integer repetitions) {
+	public void setRepetitions(String repetitions) {
 		this.repetitions = repetitions;
 	}
 
