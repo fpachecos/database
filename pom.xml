@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>br.com.fityou</groupId>
 	<artifactId>database</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>database</name>
 	<description>Database for FitYou</description>
 	<properties>

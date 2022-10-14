@@ -14,7 +14,10 @@ endif
 package:
 	$(MVN) package
 
-release-preapare: package
+up-version: package
+	$(MVN) release:update-versions
+
+release-preapare: up-version
 	$(MVN) release:prepare
 
 release-perform: release-preapare
