@@ -4,20 +4,22 @@
 package br.com.fityou.database.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
  * @author Filipe Pacheco
- * The person who's receive the diet and fitness plan
+ *         The person who's receive the diet and fitness plan
  */
 @Entity(name = "person")
-public class Person implements Serializable{
+public class Person implements Serializable {
 
 	/**
 	 * 
@@ -28,15 +30,18 @@ public class Person implements Serializable{
 	@SequenceGenerator(name = "pk_person", sequenceName = "pk_person_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_person")
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = true)
 	private String phoneNumber;
-	
+
 	@Column(nullable = false)
 	private Boolean acceptRecieveMessages;
+
+	@OneToMany(mappedBy = "person")
+	private List<Payment> payments;
 
 	/**
 	 * @return the id
@@ -93,4 +98,17 @@ public class Person implements Serializable{
 	public void setAcceptRecieveMessages(Boolean acceptRecieveMessages) {
 		this.acceptRecieveMessages = acceptRecieveMessages;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
+	}
+
 }
