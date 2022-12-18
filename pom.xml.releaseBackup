@@ -52,6 +52,10 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+   <scm>        
+    	<connection>scm:git:http://localhost:8082/artifactory/fityou-repository/</connection>
+ 		<developerConnection>scm:git:http://localhost:8082/artifactory/fityou-repository-dev/</developerConnection>
+    </scm>
 	<build>
 		<plugins>
 			<plugin>
@@ -60,16 +64,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>c06fd6604f0e-releases</name>
-			<url>http://localhost:8081/artifactory/fityou-repository</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>c06fd6604f0e-snapshots</name>
-			<url>http://localhost:8081/artifactory/fityou-repository</url>
-		</snapshotRepository>
-	</distributionManagement>
+
 </project>

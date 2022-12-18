@@ -7,21 +7,15 @@ ifeq ($(GIT),)
     GIT  := git
 endif
 
-ifeq ($(RELEASE_VERSION),)
-    RELEASE_VERSION  := $(shell xmllint --xpath "/*[local-name() = 'project']/*[local-name() = 'version']/text()" pom.xml | perl -pe 's/-SNAPSHOT//')
-endif
+clean:
+	$(MVN) clean
 
-package:
-	$(MVN) package
+install: clean
+	$(MVN) install -DskipTests
 
-up-version: package
-	$(MVN) release:update-versions
+prepare-package: install	
+	ren .\target\database*.jar database.jar
 
-release-preapare: up-version
-	$(MVN) release:prepare
-
-release-perform: release-preapare
-	$(MVN) release:perform
-
-release-version:
-	@echo $(RELEASE_VERSION)
+docker-build: prepare-package
+	 - docker image rm database:latest
+	docker build --pull --rm -f "Dockerfile" -t database:latest .
